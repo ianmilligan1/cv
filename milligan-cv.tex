@@ -1,0 +1,717 @@
+%%% A template to produce a nice-looking Curriculum Vitae.
+%%% Kieran Healy <kjhealy@gmail.com>
+%%% Most recent version is at http://kjhealy.github.com/kjh-vita
+%%%
+%%% ------------------------------------------------------------------------
+%%% Requirements that are included in a modern tex distribution:
+%%% ------------------------------------------------------------------------
+%%% xelatex
+%%% fontspec.sty
+%%% hyperrref.sty
+%%% xunicode.sty
+%%% color.sty
+%%% url.sty
+%%% fancyhdr.sty
+%%% memoir.cls
+%%% fontawesome.sty
+%%%
+%%% 
+%%% 
+%%% ------------------------------------------------------------------------
+%%% Requirements from https://github.com/kjhealy/latex-custom-kjh
+%%% ------------------------------------------------------------------------
+%%% org-preamble-xelatex.sty
+%%% memoir-article-styles.sty
+%%%
+%%% ------------------------------------------------------------------------
+%%% Optional
+%%% ------------------------------------------------------------------------
+%%% git
+%%% vc.sty
+%%% revnum.sty
+%%% Fonts
+%%%
+%%% ------------------------------------------------------------------------
+%%% Note
+%%%------------------------------------------------------------------------
+%%% Because this is a hand-tweaked file, be on the look out for \medksip, 
+%%% \bigskip and \newpage commands here and there, which are used to balance
+%%% the layout or avoid widows & orphans, etc. You should of course add or 
+%%% remove these as needed.
+%%%------------------------------------------------------------------------
+
+\documentclass[11pt,article,oneside]{memoir}   
+\usepackage{org-preamble-xelatex} 
+\usepackage{fontawesome,url}
+
+
+%%%------------------------------------------------------------------------
+%%% Metadata
+%%%------------------------------------------------------------------------
+
+%% Change as needed. Or just add me as a coauthor. Only some of these are 
+%% used below in the hyperref declaration and address banner section.
+\def\myauthor{Ian Milligan}
+\def\mytitle{Vita}
+\def\mycopyright{\myauthor}
+\def\mykeywords{}
+\def\mybibliostyle{plain}
+\def\mybibliocommand{}
+\def\mysubtitle{}
+\def\myaffiliation{University of Waterloo}
+\def\myaddress{Department of History}
+\def\myemail{i2millig@uwaterloo.ca}
+\def\myweb{http://www.ianmilligan.ca}
+\def\myphone{(519) 888-4567 x32775}
+\def\myfax{(519) 746-2658}
+\def\mytwitter{@ianmilligan1}
+\def\myversion{}
+\def\myrevision{}
+
+
+\def\myaffiliation{University of Waterloo}
+\def\myauthor{Ian Milligan}
+\date{} % not used (revision control instead)
+\def\mykeywords{Ian, Milligan, Ian Milligan, Vita, CV, Resume, History, Digital Humanities}
+
+%%%------------------------------------------------------------------------  
+%%% Git version tracking 
+%%%------------------------------------------------------------------------
+
+%% If you don't use git or the vc package (from CTAN), comment this out.
+%% If you comment it out, be sure to remove the \rfoot comment below, too.
+%\input{vc}
+
+%%%------------------------------------------------------------------------
+%%% Document
+%%%------------------------------------------------------------------------
+\begin{document}
+
+%% Choose fonts for use with xelatex
+%% Minion and Myriad are widely available, from Adobe. 
+%% Pragmata is available to buy at http://www.fsd.it/fonts/pragma.htm
+%% and is worth every penny. Any good monospace font will work fine, though.
+%% Consolas or inconsolata are good alternatives.
+\setromanfont[Mapping={tex-text}, 
+	Numbers={OldStyle},
+	Ligatures={Common}]{Minion Pro}
+\setsansfont[Mapping=tex-text,
+	Ligatures={Common}, 
+	Colour=AA0000]{Minion Pro}
+\setmonofont[Mapping=tex-text,Scale=0.72]{Minion Pro} 
+
+\newfontface\scheader[SmallCapsFont={Minion Pro},SmallCapsFeatures={Letters=SmallCaps}]{Minion Pro}
+
+\newfontface\addressblock[Mapping={tex-text}, 
+	Numbers={OldStyle},
+	Ligatures={Common}]{Minion Pro}
+
+
+%%%------------------------------------------------------------------------
+%%% Local commands
+%%%------------------------------------------------------------------------
+
+%% Marginal header
+%% Note: as the document goes on you may need to introduce a (gradually increasing)
+%% \vspace element to keep the marginal header pleasingly aligned with the first 
+%% item in the body text. Like this: \marginhead{{\vskip 0.4em}Grants}, or 
+%% \marginhead{{\vskip 0.8em}Service}. Experiment as needed.
+\newcommand{\marginhead}[1]{\marginpar{\textsf{{\footnotesize\vspace{-1em}\flushright #1}}}}
+
+
+%% [optional] custom ampersand (font consistent with the one chosen above)
+% \newcommand{\amper}{{\fontspec[Scale=.95,Colour=AA0000]{Minion Pro Medium}\selectfont\&\,}}
+
+%% No bullets on labels
+\renewcommand{\labelitemi}{~} 
+
+%% Custom hanging indent for vita items
+\def\ind{\hangindent=1 true cm\hangafter=1 \noindent}
+%\def\ind{\hangindent=18pt\hangafter=1 \noindent}
+\def\labelitemi{~}
+\renewcommand{\labelitemii}{~}
+
+%%%------------------------------------------------------------------------
+%%% Page layout
+%%%------------------------------------------------------------------------
+
+% These lines will insert git revision info in the footer, using the vc
+% package---see docs for vc package for details. Comment out this line
+% if you're not using vc, and also remove the \input{vc} line above.
+%\pagestyle{kjh}
+%\thispagestyle{kjhgit}
+
+
+%%%------------------------------------------------------------------------
+%%% Address and contact block
+%%%------------------------------------------------------------------------
+\begin{minipage}[t]{2.95in}
+ \flushright {\footnotesize 
+ \href{http://uwaterloo.ca/history}{Department of History} \\ HH Building, room 114 \\ University of Waterloo \\ \vspace{-0.05in} Waterloo ON, \textsc{nc} N2L 2C8.}  
+  
+\end{minipage}
+\hfill     
+%\begin{minipage}[t]{0.0in}
+% dummy (needed here)
+%\end{minipage}
+\hfill
+\begin{minipage}[t]{1.3in}
+  \flushright \footnotesize  \addressblock \myphone \, \faPhone \\ 
+  {\scriptsize  \texttt{\href{http://twitter.com/ianmilligan1}{\mytwitter}} \, \faTwitter }  \\ 
+  {\scriptsize  \texttt{\href{mailto:\myemail}{\myemail}} \, \faEnvelope} \\
+  {\scriptsize  \texttt{\href{\myweb}{\myweb}} \, \faGlobe}
+\end{minipage}
+
+\medskip
+
+%% Name 
+\noindent{\LARGE\scheader \textsc{ian milligan}}
+\reversemarginpar
+
+\bigskip       
+
+
+%% Appointments
+% \medskip
+\marginhead{\sffamily appointments}
+
+\ind Assistant Professor of History, University of Waterloo, 2012--Present.      
+
+\ind Marshall McLuhan Centenary Fellow, Faculty of Information Studies, University of Toronto, 2016--17.
+
+\ind SSHRC Postdoctoral Fellow, Western University, 2012.
+
+\bigskip
+
+%% Education
+
+\marginhead{\sffamily {{\vskip -0.23em} education}}
+
+%\noindent\emph{Princeton University \vspace{0.01in}}
+
+\ind Ph.D, History, York University, 2012.
+
+\ind M.A., History, York University, 2007. 
+
+\ind B.A. (Hons.), History, Queen's University, 2006.
+
+\bigskip
+ 
+%% Publications
+\marginhead{\sffamily {\vskip 0.35em} publications}
+\medskip
+\noindent\emph{Book \vspace{0.01in}}
+
+\ind  Shawn Graham, Ian Milligan, and Scott Weingart, \emph{\href{http://www.worldscientific.com/worldscibooks/10.1142/p981}{Exploring Big Historical Data: The Historian's Macroscope}}. London:~Imperial College Press, 2015. \vspace{0.05in}
+
+\ind  Ian Milligan, \emph{\href{http://www.ubcpress.ca/search/title_book.asp?BookID=299174315}{Rebel Youth: 1960s Labour Unrest, Young Workers, and New Leftists in English Canada}}. Vancouver:~University of British Columbia Press, 2014. \vspace{0.05in}
+
+\ind \hspace{0.35in} \footnotesize Shortlisted, 2015 Sir John A. Macdonald Prize, Canadian Historical Association.
+
+\vspace{-0.075in}
+
+\normalsize
+
+\bigskip
+\noindent\emph{Journal articles \vspace{0.05in}}
+ 
+%% Use revnumerate environment if numbered publications are needed. 
+%% (Include it above in the preamble).
+%% \renewcommand{\labelenumi}{\textsc{a}\theenumi.}
+%% \begin{revnumerate}
+
+\ind Nick Ruest and Ian Milligan. ``\href{http://journal.code4lib.org/articles/11358}{An Open-Source Strategy for Documenting Events: The Case Study of the 42nd Canadian Federal Election on Twitter}.'' \emph{Code4Lib Journal}, Issue 32, April 2016.
+
+\ind Ian Milligan, Nick Ruest, and Anna St-Onge. ``\href{http://www.digitalstudies.org/ojs/index.php/digital_studies/article/view/325/412}{The Great WARC Adventure : Using SIPS, AIPS and DIPS to document SLAAPs}.'' \emph{Digital Studies/Le champ numÃ©rique}, Vol. 6, 2016.
+
+\ind Ian Milligan. ``\href{http://www.euppublishing.com/doi/abs/10.3366/ijhac.2016.0161}{Lost in the Infinite Archive: The Promise and Pitfalls of Web Archives}.'' \emph{International Journal of Humanities and Arts Computing}, Vol. 10, No. 1-2 (2016):~87---94.
+
+\ind Ian Milligan. ``\href{http://muse.jhu.edu/login?auth=0&type=summary&url=/journals/histoire_sociale_social_history/v048/48.96.milligan.pdf}{`A Haven for Perverts, Criminals, and Goons': Children and the Battle for and Against Canadian Internet Regulation, 1991-1999}.'' \emph{Histoire Sociale/Social History}, vol. 47, No. 96 (May 2015):~245---274.
+
+\ind Ian Milligan. ``\href{http://muse.jhu.edu/journals/canadian_historical_review/toc/can.94.4.html}{Illusionary Order: Online Databases, Optical Character Recognition, and Canadian History, 1997-2010}.'' \emph{Canadian Historical Review}, Vol. 94, No. 4 (December 2013):~540---569.
+
+\ind Ian Milligan. ``\href{http://www.erudit.org/revue/jcha/2012/v23/n2/1015788ar.html}{Mining the Internet Graveyard: Rethinking the Historians' Toolkit}.'' \emph{Journal of the Canadian Historical Association}, Vol. 23, No 2 (2012, published in 2013):~21---64. \textit{Winner, 2013 Journal of the Canadian Historical Association Best Article Prize}.
+
+\ind Ian Milligan. ``\href{http://ojs.library.ubc.ca/index.php/bcstudies/article/view/2046}{Coming off the Mountain: Forging an Outward Looking New Left at Simon Fraser University}.'' \emph{BC Studies}, Vol. 171 (Autumn 2011):~69---91.
+
+\ind Ian Milligan. ``\href{https://ianmilligan.ca/2013/06/17/post-firewall-this-board-has-a-duty-to-intervene/}{`This Board Has a Duty to Intervene,' Challenging the Spadina Expressway Through the Ontario Municipal Board, 1963-1971}.'' \emph{Urban History Review/Revue dâ€™histoire urbaine}, Vol. 39, No. 2 (Spring 2011):~25---37.
+
+\ind Ian Milligan. ``\href{http://www.lltjournal.ca/index.php/llt/article/download/5613/6476}{`The Force of All Our Numbers:'' New Leftists, Labour, and the 1973 Artistic Woodwork Strike}.'' \emph{Labour/Le Travail}, Vol. 66 (Fall 2010):~37---71.
+
+\ind Ian Milligan. ``\href{http://search.proquest.com.proxy.lib.uwaterloo.ca/docview/208529434?accountid=14906}{Sedition in Wartime Ontario: The Trials and Imprisonment of Isaac Bainbridge, 1917-1918}.'' \emph{Ontario History}, Vol. 66 (Autumn 2008):~150---177.
+
+%\end{revnumerate}
+%\newpage
+\bigskip
+
+\noindent\emph{Book chapters \vspace{0.05in}}
+% \renewcommand{\labelenumi}{\textsc{c}\theenumi.}
+% \begin{revnumerate}
+
+\ind Ian Milligan. ``Welcome to the Web: The Online Community of GeoCities and the Early Years of the World Wide Web,'' in \emph{The Web as History}, edited by Ralph Schroeder and Niels Brugger. London: UCL Press, Forthcoming March 2017.
+
+\ind William J. Turkel and Ian Milligan. ``The Challenge of `High-Throughput' Computational Methods,'' in \emph{The Challenge of â€˜High-Throughputâ€™ Computational Methods}, edited by Barry Rodrigue, Leonid Grinin, and Andrey Korotayev. New Delhi: Primus Books, 2016.
+
+%\end{revnumerate}
+
+\bigskip 
+
+\noindent\emph{Computer Science conference publications \vspace{0.05in}}
+% \renewcommand{\labelenumi}{\textsc{c}\theenumi.}
+% \begin{revnumerate}
+
+\ind Ian Milligan, Nick Ruest, and Jimmy Lin. ``\href{http://dl.acm.org/citation.cfm?id=2910913&CFID=806438388&CFTOKEN=32226772}{Content Selection and Curation for Web Archiving: The Gatekeepers vs. the Masses}.'' \emph{Proceedings of the ACM/IEEE Joint Conference on Digital Libraries}, Vol. 16 (2016):~107---110.
+
+\ind Andrew Jackson, Jimmy Lin, Ian Milligan, and Nick Ruest. ``\href{http://dl.acm.org/citation.cfm?id=2910912&CFID=806438388&CFTOKEN=32226772}{Content Selection and Curation for Web Archiving: The Gatekeepers vs. the Masses}.'' \emph{Proceedings of the ACM/IEEE Joint Conference on Digital Libraries}, Vol. 16 (2016):~103---106.
+
+%\end{revnumerate}
+
+\bigskip 
+
+\noindent\emph{Peer-reviewed Technical Contributions \vspace{0.05in}}
+% \renewcommand{\labelenumi}{\textsc{c}\theenumi.}
+% \begin{revnumerate}
+
+\ind Ian Milligan. ``\href{http://www.ieee-tcdl.org/Bulletin/v11n2/papers/milligan.pdf}{Finding Community in the Ruins of GeoCities: Distantly Reading a Web Archive}.'' \emph{Bulletin of IEEE Technical Committee on Digital Libraries}, Vol. 11, Issue. 2  (October 2015).
+
+\ind Ian Milligan and James Baker. ``\href{http://programminghistorian.org/lessons/intro-to-bash}{Introduction to the Bash Command Line}.'' \emph{Programming Historian}, September 2014.
+
+\ind James Baker and Ian Milligan. ``\href{http://programminghistorian.org/lessons/research-data-with-unix}{Counting and Mining Research Data with Unix}.'' \emph{Programming Historian}, September 2014.
+
+\ind Shawn Graham, Scott Weingart, and Ian Milligan. ``\href{http://programminghistorian.org/lessons/topic-modeling-and-mallet}{Getting Started with Topic Modeling and MALLET}.'' \emph{The Programming Historian}, September 2012. 
+
+\ind Ian Milligan, ``\href{http://programminghistorian.org/lessons/automated-downloading-with-wget}{Automated Downloading with Wget},'' \emph{The Programming Historian}, August 2012. 
+
+%\end{revnumerate}
+
+\bigskip 
+
+\noindent\emph{Essays \vspace{0.05in}}
+% \renewcommand{\labelenumi}{\textsc{c}\theenumi.}
+% \begin{revnumerate}
+
+\ind Ian Milligan, ``\href{http://www.revparl.ca/37/4/37n4e_14_Milligan.pdf}{Open Data's Potential for Political History},'' \emph{Canadian Parliamentary Review}, vol. 37, no. 4 (2014).
+
+\ind Shawn Graham, Ian Milligan, and Scott Weingart, ``\href{http://www.historians.org/publications-and-directories/perspectives-on-history/october-2014/writing-the-historian%E2%80%99s-macroscope-in-public}{Writing The Historian's Macroscope in Public},'' \emph{Perspectives on History: The Newsmagazine of the American Historical Association}, October 2014.
+
+\ind Ian Milligan, ``\href{http://reviewcanada.ca/magazine/2014/05/does-history-matter/}{Does History Matter? Pioneering Research on Canadaâ€™s Attitudes Towards Bygone Days},'' \emph{Literary Review of Canada}, May 2014:~28---29.
+
+\ind Ian Milligan, ``Exploring the Web Through the Programming Historian,'' \emph{Canadian Historical Association Bulletin}, October 2013.
+
+\ind Ian Milligan, ``\href{http://www.nature.com/nature/journal/v497/n7449/full/497317b.html}{Archives: Preserve Our Digital Heritage},'' \emph{Nature}, 497 (16 May 2013). 
+
+%\end{revnumerate}
+\bigskip 
+
+%\newpage
+\noindent\emph{Reviews \vspace{0.05in}}
+
+%\renewcommand{\labelenumi}{\textsc{r}\theenumi.}
+%\begin{revnumerate}
+
+\ind Ian Milligan, ``Review of Lara Campbell, Dominique ClÃ©ment, and Gregory S. Kealey, eds., Debating Dissent: Canada and the Sixties (Toronto: University of Toronto Press, 2012)'', in \emph{Canadian Historical Review}, Vol. 94, No. 4 (December 2013).
+
+\ind Ian Milligan, ``Review of Benjamin Isitt, Militant Minority: British Columbia Workers and the Rise of a New Left, 1948-1972 (Toronto: University of Toronto Press, 2011)'', in \emph{Histoire Sociale/Social History}, Vol. 46, No. 92 (November 2013).
+
+\ind Shawn Graham and Ian Milligan, ``\href{http://journalofdigitalhumanities.org/2-1/review-mallet-by-ian-milligan-and-shawn-graham/}{Review: MAchine Learning for LanguagE Toolkit (MALLET),}'' in \emph{Journal of Digital Humanities}, Vol. 2, No. 1 (Spring 2013).
+
+\ind Ian Milligan, ``Review: â€œ\href{http://www.oralhistoryforum.ca/index.php/ohf/article/view/467/545}The Alberta Federation of Labourâ€™s Centennial Website: A Fantastic Resource (if you can find it),'' in \emph{Oral History Forum/Forum dâ€™histoire orale} Vol. 33 (2013).
+
+\ind Ian Milligan, ``Review of Jefferson Cowie, Stayinâ€™ Alive: The 1970s and the Last Days of the Working Class (New York: New Press, 2010)'', in \emph{Labour/Le Travail}, Vol. 69 (Spring 2012):~235---237.
+
+\ind Ian Milligan, ``Review of Paul Mason, Live Working or Die Fighting: How the Working Class Went Global (Chicago: Haymarket Books, 2010)'', in \emph{Labor History}, Vol. 52, No. 3 (September 2011):~361---363.
+
+\ind Ian Milligan, ``Review of James Pitsula, New World Dawning: The Sixties at Regina Campus (Regina: Canadian Plains Research Centre, 2008)'', in \emph{Canadian Historical Review}, 90:4 (December 2009):~818---820.
+
+\ind Ian Milligan, ``\href{http://www.h-net.org/reviews/showrev.php?id=24198}{Review of Ian McKay, Reasoning Otherwise: Leftists and the Peopleâ€™s Enlightenment in Canada, 1890-1920 (Toronto: Between the Lines, 2008)}'', \emph{H-Canada}, February 2009.
+
+\bigskip
+
+%% Media
+
+\marginhead{\sffamily {\vskip 0.5em}Media}
+\medskip
+
+\ind ``\href{http://www.cbc.ca/radio/thecurrent/the-current-for-november-5-2015-1.3305130/preserving-digital-history-is-imperative-to-save-cultural-history-1.3305263}{Preserving Digital History is Imperative to Save Cultural History},'' \emph{CBCâ€™s The Current with Anna Maria Tremonti}, 5 November 2015.
+
+\ind ``\href{https://www.newscientist.com/article/mg22830422-900-how-to-save-our-digital-knowledge-for-future-generations-to-read/?utm_source=NSNS}{How to save our digital knowledge for future generations to read},'' \emph{New Scientist}, 7 October 2015.
+
+\ind ``\href{http://www.cbc.ca/radio/spark/293-enhancing-books-wondering-where-the-time-went-and-more-1.3229541/think-a-political-party-has-flip-flopped-now-you-can-prove-it-1.3229550}{Think a political party has flip-flopped? Now you can prove it.}'' \emph{CBC Spark}, 20 September 2015. 
+
+\ind ``\href{http://www.cbc.ca/news/canada/kitchener-waterloo/5-things-i-ve-learned-from-combing-an-archive-of-old-and-deleted-political-websites-1.3209731}{5 things Iâ€™ve learned from combing an archive of old and deleted political websites.}'' \emph{CBC Kitchener-Waterloo and CBCâ€™s Canada Votes portal}, analysis piece, 31 August 2015.
+
+\ind ``\href{http://www.570news.com/2015/08/28/friday-august-28th-2015-1pm/}{Talk radio interview on WebArchives.ca}. 570 News, 28 August 2015.
+
+\ind ``\href{http://www.cbc.ca/news/canada/kitchener-waterloo/waterloo-professor-restores-deleted-political-platforms-promises-1.3204877}{Waterloo professor restores deleted political platforms, promises,}'' \emph{CBC Kitchener-Waterloo and CBCâ€™s Canada Votes portal}, 27 August 2015. 
+
+\ind ``\href{http://www.cbc.ca/radio/thecurrent/oct-2-2014-1.2907466/historians-want-canada-to-give-them-access-to-big-data-1.2907471}{Historians want Canada to give them access to Big Data,}'' \emph{interview on CBCâ€™s The Current with Anna Maria Tremonti}, 2 October 2014. 
+
+%% Presentations
+\marginhead{\sffamily {\vskip 0.5em}Invited Talks}
+\medskip
+
+\ind ``Making Sense of Web Archives: Facing Big Data from the Historian's Perspective,'' Invited Lecture at Library of Congress, Washington DC. June 2016.
+
+\ind ``Historians and the Impending Big Data Deluge: How the Web Changes Everything,'' Invited Lecture atNational Endowment for the Humanities, Washington DC. June 2016.
+
+\ind ``Archives Unleashed: Unlocking Born-Digital Sources through Interdisciplinary Collaboration,'' Keynote at Canadian Society for Digital Humanities, University of Calgary, Calgary AB. May 2016.
+
+\ind ``Web Archives and are Reshaping Today's Historical Record,'' Invited Lecture at University of Saskatchewan Digital Humanities Talk, University of Saskatchewan, Saskatoon SK. March 2016.
+
+\ind ``The Digital Humanities and Born-Digital Sources: Web Archives, Tweets, and the Record of Today,'' Invited Lecture at Institute for Global History Speaker Series, Georgetown University, Washington DC. February 2016.
+
+\ind ``Big Data and History: Seeing the Past through a Macroscope,'' Invited Lecture at Selskabet for Samtidshistorisk Forskning (Danish Society for Research in Contemporary History), Copenhagen Denmark. January 2016. 
+
+\ind ``Preserving Digital History to Save Cultural History,'' Invited Lecture at Kitchener-Waterloo Art Gallery Culture Talk, Kitchener ON. January 2016.
+
+\ind ``Web Histories and Web Archives,'' Invited Lecture at Government Information Day, Waterloo ON. December 2015.
+
+\ind ``An Evening with Dr. Milligan: The Challenges of Digital Sources in the Web Age: Common Tensions Across Three Web Histories, 1994-2015,'' Invited Lecture at Archives Association of Ontario Southwestern Ontario Chapter, Kitchener, ON. November 2015.
+
+\ind ``Lost in the Infinite Archive? Web Archives for Historical Research Today... and Tomorrow,'' Keynote at Web Archives 2015: Capture, Curate, Analyze, University of Michigan, Ann Arbor MI. November 2015.
+
+\ind ``The Challenge of Digital Sources in the Web Age: Common Tensions Across Three Web Histories, 1994-2015,'' Invited Lecture at Digital Curation Institute, University of Toronto, Toronto ON. October 2015.
+
+\ind ``Between Content and Metadata: A Historian Faces Technical and Professional Challenges in Three Types of Web Archives,'' Invited Lecture at British Library, London UK. October 2015.
+
+\ind ``Invited Seminar: "The Challenge of Digital Sources in the Web Age: Common Tensions Across Three Web Histories, 1994-2015,'' Invited Lecture at Digital History Seminar, Institute for Historical Research, London UK. September 2015. 
+
+\ind ``Welcome to the GeoHood: Exploring Early Web History through the GeoCities Torrent, 1994-2009,'' Invited Lecture at Centre for Internet Studies, University of Aarhus, Aarhus, Denmark. September 2015.
+
+\ind ``Accessing Historical Data En Masse,'' Invited Workshop at Massachusetts Institute of Technology, Cambridge, MA. January 2015.
+
+\ind ``Big Data and History: How Web Archives Will Challenge, Complement and Enhance the Historical Profession,'' Invited Lecture at Acadia Institute for Data Analytics, Acadia University, Wolfville NS. November 2014.
+
+\ind ``Historians and the Web,'' Invited Lecture at Big Data in the SSHRC Disciplines: Data from the Past, Present and Future, Western University, London ON. March 2014.
+
+\ind ``Historians and the Web: Challenges and Potentials of the Infinite Archive,'' University of Guelph DigiCafe Series, University of Guelph, Guelph ON. March 2014.
+
+\ind ``Preparing for the Infinite Archive: Social Historians and the Digital Deluge,'' Keynote at Tri-University History Conference: New Approaches to History, University of Guelph, Guelph ON. March 2013.
+
+%\end{revnumerate}
+
+\bigskip
+
+%\newpage
+
+\marginhead{\sffamily {\vskip 0.5em}Conference \newline Papers}
+\medskip
+
+\ind Ian Milligan, Jimmy Lin, Jeremy Wiebe, and Alice Zhou. ``Exploring and Discovering Archive-It Collections with Warcbase,'' Digital Humanities 2016, Krakow, Poland, July 2016.
+
+\ind Ian Milligan and Nick Ruest, ``Enabling Access to Canadian Archival Collections through WebArchives.ca,'' Canadian Society for Digital Humanities, Calgary, Alberta, June 2016. 
+
+\ind Ian Milligan, Jimmy Lin, Jeremy Wiebe, and Alice Zhou, ``Enabling Analytics through the Warcbase Platform,'' Canadian Society for Digital Humanities, Calgary, Alberta, June 2016.
+
+\ind Nick Ruest and Ian Milligan, ``Hands-on with Warcbase,'' International Internet Preservation Consortium Web Archiving Conference 2016, Reykjavik, Iceland, April 2016.
+
+\ind Nick Ruest and Ian Milligan, ``An exploratory look at 3,039,804 \#elxn42 tweets'', International Internet Preservation Consortium Web Archiving Conference 2016, Reykjavik, Iceland, April 2016.
+
+\ind Matthew Weber and Ian Milligan, ``Archives Unleashed: Hackathons as a Tool for Engaging Scholars with Web Archives,'' International Internet Preservation Consortium Web Archiving Conference 2016, Reykjavik, Iceland, April 2016.
+
+\ind Nick Ruest and Ian Milligan, ``Enabling Access to Old Wu-Tang Clan Fan Sites: Facilitating Interdisciplinary Web Archive Collaboration,'' Code4Lib 2016, Philadelphia, Pennsylvania. March 2016. 
+
+\ind Ian Milligan, ``Making Sense of the Web: Finding Community in the GeoCities Web Archives,'' American Historical review annual meeting, Atlanta, Georgia. January 2016. 
+
+\ind Ian Milligan, ``Understanding early Web history through three case studies: methodological and technical challenges,'' Times and Temporalities of the Web conference, Institut des sciences de la communication, Paris, France. December 2015. 
+
+\ind Ian Milligan, Jimmy Lin, and Jeremy Wiebe, ``Between Metadata and Content: Exploring Canadian Political History with Archive-It's Research Services,'' Web Archives 2015: Capture, Curate, Analyze conference, University of Michigan, Ann Arbor, MI. November 2015. 
+
+\ind Ian Milligan, ``Welcome to the GeoHood: Using the GeoCities Web Archive to Explore Virtual Communities,'' Web Archives as Scholarly Sources: Issues, Practices, and Perspectives, Aarhus, Denmark. June 2015. 
+
+\ind Jimmy Lin and Ian Milligan, ``Warcbase: Building a Scalable Platform on HBase and Hadoop,'' Web Archiving Collaboration: New Tools and Methods, Columbia University, New York, New York. June 2015. 
+
+\ind Ian Milligan, ``Making Sense of Abundance: Opportunity and Challenges Across Three Web Archive Case Studies,'' Canadian Society for Digital Humanities/Soci\'et\'e canadienne des humanit\'es num\'eriques (CSDH/SCHN) and Association for Computers and the Humanities (ACH) Joint Conference, University of Ottawa, Ottawa ON. June 2015. 
+
+\ind Ian Milligan, ``The Record of Our Recent Past: Large-Scale Text Mining in Canadian Web Archives,'' Text Mining in the Humanities: Collaboration across Sectors, University of Ottawa, Ottawa ON. May 2015. 
+
+\ind Jimmy Lin and Ian Milligan, ``Warcbase: Scaling `Out', `In', and `Down' HBase for Web Archiving,'' HBaseCon2015, San Francisco CA. May 2015. 
+
+\ind Ian Milligan, ``WARCs, WATs, and wgets: Opportunity and Challenge for a Historian Amongst Three Types of Web Archives,'' International Preservation Committee Annual Meeting, Palo Alto CA. April 2015. 
+
+\ind Ian Milligan, ``Web Archives and Historians: How They Can Challenge, Complement, and Shape the Historical Profession,'' Big Data, Around the World Conference, World-Wide Live Streamed Conference held at the University of Alberta. April 2015. 
+
+\ind Ian Milligan, ``Using the GeoCities Web Archive to Explore Virtual Communities,'' Big Data in a Transdisciplinary Perspective, Hanover, Germany. March 2015. 
+
+\ind Ian Milligan, ``The Promise of WebARChive Files: Exploring the Internet Archive as a Historical Resource,'' American Historical Association 2015 Annual Meeting, New York City, NY. January 2015.
+
+\ind Ian Milligan, ``Clustering Search to Navigate A Case Study of the Canadian World Wide Web as a Historical Resource,'' Digital Humanities 2014 Conference, Lausanne, Switzerland. July 2014.
+
+\ind Nick Ruest and Ian Milligan, ``The Great WARC Adventure: WARCs from Creation to Use,'' Canadian Archivists Association Annual Meeting, Victoria, BC. June 2014.
+
+\ind Ian Milligan, ```A Haven for Perverts, Criminals, and Goons': Children and the Battle for Canadian Internet Regulation, 1991-1999,'' Canadian Historical Association Annual Meeting, Brock University, St. Catharine's ON. May 2014.
+
+\ind Ian Milligan, ``An Infinite Archive? Historical Explorations in the Internet Archive's Wide Web Scrape,'' International Internet Preservation Committee Annual Meeting, Paris, France. May 2014. 
+
+\ind Ian Milligan, ``Rethinking the Archival Box,'' (Digital) Humanities Revisited ? Challenges and Opportunities in the Digital Age, Hanover, Germany. December 2013.
+
+\ind Ian Milligan, ````The Internet Archive and Social Historians: Challenge and Potential Amidst the WebARChive Files,'' Canadian Historical Association Annual Meeting, University of Victoria, Victoria BC. June 2013. 
+
+\ind Ian Milligan, ```Active' Historians and the DIY Web?'' National Committee on Public History Annual Meeting, Ottawa ON. April 2013.
+
+\ind Ian Milligan, ``Public History and the University: Opportunities and Challenges,'' Public History and the University Conference, York University, Toronto ON. November 2012. 
+
+\ind Ian Milligan, ``Mining the `Internet Graveyard': Exploring Canada's Digital Collections Projects,'' Canadian Historical Association Annual Meeting, University of Waterloo and Wilfrid Laurier University, Waterloo ON. May 2012. 
+
+\ind Ian Milligan, ``Digging into Music: An Interactive Textual Analysis of the Top 40 Billboard Lyrics Database,'' Popular Culture Association of Canada's Annual Meeting, Niagara Falls ON. May 2012. 
+
+\ind Ian Milligan, ``Embracing the `Big History' Shift: Social Historians and Digital History (or `how I learned to stop worrying and love the n-gram'),'' Cultural Historiography: Emergent Themes and Methods, University of Guelph, Guelph ON. March 2012.
+
+\ind Ian Milligan, ``Youth Revolt: Class and Radicalism in English Canada's Baby Boom Generation,'' Society for the History of Children and Youth Biennial Meeting, Columbia University, New York City NY. June 2011.
+
+\ind Ian Milligan, ```The Cry of Youth': Class, Radicalism, and the Challenging of the Golden Age,'' Canadian Historical Association Annual Meeting, University of New Brunswick, Fredericton NB. May-June 2011.
+
+\ind Ian Milligan, ``Searching for Allies: The English-Canadian New Left and Broader Community Coalitions, 1968-1973,'' 2010 Two Days of Canada Conference: `The Sixties: Canadian Style,' Brock University, St. Catharines ON. November 2010.
+
+\ind Ian Milligan, ``Towards a New Proletariat: Debating Class and Social Change Within the English- Canadian Student New Left,'' Canadian History of Education Association Biannual Meeting, Toronto ON. October 2010.
+
+\ind Ian Milligan, ``Growing Up on the Line: New Leftists, Youth, and Labour at the Artistic Woodwork Strike, 1973,'' Canadian Historical Association Annual Meeting, Concordia University, Montreal QC. June 2010.
+
+\ind Ian Milligan, ``From the Quad to the Picket Line: Towards a Labour History of the Long Sixties,'' Writing the Sixties: A Practical Symposium, Carleton University, Ottawa ON. November 2009.
+
+\ind Ian Milligan, ``No Firm Ground: The Canadian New Left and their Conceptions of Class, 1964- 1968,'' Canadian Historical Association Annual Meeting, University of British Columbia, Vancouver BC. June 2008.
+
+\ind Ian Milligan, ``Sedition in Wartime Ontario: The Trials and Imprisonment of Isaac Bainbridge, 1918-1919,'' New Frontiers in Graduate History Conference, York University, Toronto ON. February 2008.
+
+\ind Ian Milligan, ``Towards a New Proletariat: The Canadian New Left and the Working Class,'' Global Sixties: New World Coming Conference, Queen's University, Kingston ON. June 2007.
+
+\bigskip 
+
+\marginhead{\sffamily {\vskip 0.6em}Honors, \newline \& awards}
+\medskip
+
+\ind Outstanding Early Career Award, Canadian Society for Digital Humanities, 2016.
+
+\ind Shortlisted for the John A Macdonald Prize in best Canadian historical non-fiction writing, Canadian Historical Association, 2015.
+
+\ind Outstanding Performance Award, University of Waterloo, 2014.
+
+\ind Best Article in the Journal of the Canadian Historical Association award, Canadian Historical Association, 2013.
+
+\ind Avie Bennett Historica-Dominion Institute Scholarship in Canadian History, 2011-2012.
+
+\ind SSHRC Doctoral Fellowship, 2009-2011.
+
+\ind Ramsay Cook Fellowship for Canadian History, York University, 2009.
+
+\ind Ontario Graduate Scholarship, Government of Ontario (declined), 2009-2010.
+
+\ind Sir John A. Macdonald Graduate Fellowship in Canadian History, Government of Ontario. 2007-2010.
+
+\ind Frederick W. Gibson Prize in Canadian History, Queen's University, 2006.
+
+\ind Alexander MacLachlan Peace Prize, Queen's University, 2006.
+\bigskip 
+
+\marginhead{\sffamily {\vskip 0.6em}Grants}
+\medskip
+
+\ind \$602,772 CAD total in grant funding; \$523,343 CAD as Principal Investigator.
+
+\medskip
+
+\ind Compute Canada, Research Platforms and Portals Competition (``Web Archives for Longitudinal Knowledge''). Principal Investigator: \textbf{Ian Milligan}, Co-Principal Investigator: Nick Ruest (York University). \$11,635. 2016-19.
+
+\ind Arts and Humanities Research Council (UK) (``Born-Digital Data and Methods for History and the Humanities'').  Principal Investigator: Jane Winters (University of London), Co-Investigator: Tobias Blanke (King's College, London), Main Partners: Sonia Ranade (National Archives of the UK), Anne Alexander (University of Cambridge), James Baker (University of Sussex), \textbf{Ian Milligan} (University of Waterloo), Jason Webber and Jonathan Pledge (British Library), Peter Webster (Webster Research and Consulting). £32,210 GBP, or \$60,125 CAD. 2016-17.
+
+\ind Social Sciences and Humanities Research Council, Connection Grant (``Unlock Your Web Archives Hackathon''), Principal Investigator: \textbf{Ian Milligan}, Co-Investigators: Jimmy Lin (University of Waterloo), Matthew Weber (Rutgers University), Nathalie Casemajor (Universit\'e du Qu\'ebec en Outaouais), Nicholas Worby (University of Toronto). \$23,715 CAD. 2015-16.
+
+\ind Social Sciences and Humanities Research Council, Insight Grant (``A Longitudinal Analysis of the Canadian World Wide Web as a Historical Resource, 1996-2014''). Principal Investigator: \textbf{Ian Milligan}, Co-investigators: Nick Ruest (York University), William Turkel (Western University). \$257,541 CAD. 2015-20.
+
+\ind Ontario Ministry of Research and Innovation, Early Researcher Award (``A Longitudinal Analysis of the Canadian World Wide Web as a Historical Resource, 1996---2014''). \$150,000 CAD. Principal Investigator: \textbf{Ian Milligan}. \$150,000 CAD. 2015-20.
+
+\ind Social Sciences and Humanities Research Council, Connection Grant (``New Directions in Active History: Institutions, Communication, and Technologies''). Principal Investigator: Thomas Peace (Huron University College), Co-Investigators: \textbf{Ian Milligan}, Jim Clifford (University of Saskatchewan), Daniel Ross (York University), Kaleigh Bradley (York University), Krista McCracken (Algoma University), Andrew Nurse (Mount Allison University). \$19,304 CAD. 2015-16.
+
+\ind Social Sciences and Humanities Research Council, Insight Development Grant (``An Infinite Archive? Developing HistoryCrawler to Explore the Internet Archive as a Historical Resource''). \$74,952 CAD. Principal Investigator: \textbf{Ian Milligan}, Co-Investigator: William Turkel (Western University). 2013-15.
+
+\ind University of Waterloo/Social Sciences and Humanities Research Council Institutional Block Grant (SEED Grant for same project as above), June 2013 --- June 2015. Principal Investigator: \textbf{Ian Milligan}. \$5,500 CAD. 2013-15.
+\medskip 
+
+\marginhead{\sffamily {\vskip 1.12em}Editorships}
+\bigskip
+\ind Book Review Editor, Internet Histories (Academic Journal). Responsible or contacting academic publishers, finding reviewers for new monographs, coordinating and editing review essays and editing reviews. 2016-Present.
+
+\ind Editor, Programming Historian (Open-Access Collaborative Textbook), NiCHE/Centre for History and New Media. Responsible for finding new lessons, carrying out peer review process, and other responsibilities. 2012-Present.
+
+\ind Book Review Editor, Left History (Academic Journal). Responsible or contacting academic publishers, finding reviewers for new monographs, coordinating and editing review essays and editing reviews. 2009-11.
+
+\ind Founding Co-Editor, Activehistory.ca Website. This is a website with the goal of recognizing the public responsibilities of the historian and to build a collegial community among active historians and other members of the community. Responsibilities included website maintenance, editing submissions, generating original content, communications, and forging the site's mandate. 2009-15.
+
+\bigskip
+
+\marginhead{{\vskip 0.9em}Events \newline Organized}
+\medskip
+
+\ind Co-Program Chair, Joint Conference on Digital Libraries 2017, Toronto ON. 2017.
+
+\ind Posters and Demo Chair, Joint Conference on Digital Libraries 2016, Newark NJ. 2016.
+
+\ind Archives Unleashed 2.0: Web Archives Hackathon. Co-Organizer. \href{http://archivesunleashed.com/}{http://archivesunleashed.com}. 13-15 June 2016.
+
+\ind Archives Unleashed: Web Archives Hackathon. Principal Investigator and Main Coordinator. \href{http://archivesunleashed.ca/}{http://archivesunleashed.ca}. 3-5 March 2016.
+
+\medskip
+
+%% Graduate Teaching
+
+\marginhead{\sffamily {\vskip 0.35em}Teaching}
+\medskip
+\noindent\emph{Doctoral Training \vspace{0.01in}}
+
+\ind PhD Supervisor for Sarah McTavish, 2016-Present.
+
+\ind Doctoral Committee for Victoria Campbell, 2013-Present.
+
+\ind External Examiner for Kimberly Martin, Faculty of Information \& Media Studies, University of Western Ontario. 2016.
+
+\ind Internal/External Examiner for Jason Hawreliak, Department of English. 2013.
+
+\medskip
+\noindent\emph{Masters Training \vspace{0.01in}}
+
+\ind MA Thesis Supervisor, Den\'ee Renouf. 2017. In Progress.
+
+\ind MA Thesis Supervisor, Eric Vero. 2017. In Progress.
+
+\ind MA Thesis Supervisor, Patrick O'Leary. 2016. Defended August 2016.
+
+\ind MA Thesis Supervisor, Katie Mackinnon. 2016. Defended August 2016.
+
+\ind MA Thesis Supervisor, David Hussey. 2015. Defended August 2015.
+
+\ind MRP Second Reader, Danielle McDonald. Defended August 2015.
+
+\ind MRP Second Reader, Shelby Riddell. Defended Summer 2014.
+
+\ind MRP Second Reader, Matt Ferguson. Defended Summer 2014.
+
+\ind MRP Second Reader, Eric Reis. Defended Summer 2014.
+
+\ind MRP Second Reader, Kira Burt. Defended Summer 2013.
+
+\ind MRP Second Reader, Matt Ferguson. Defended Fall 2013.
+
+\medskip
+\noindent\emph{Graduate Courses \vspace{0.05in}}
+
+\ind HIST 602, Canadian Projects Course. 2016, 2017.
+
+\medskip
+
+\noindent\emph{Undergraduate Courses \vspace{0.05in}}
+
+\ind HIST 250: The Art and Craft of History, 2013, 2014, 2016 (x2).
+
+\ind HIST 291: History of Childhood and Youth in Canada, 2012.
+
+\ind HIST 303: Digital History (previously HIST 291), 2013, 2014, 2015.
+
+\ind HIST 388: Modern Canada, 2013 (x2).
+
+\ind HIST 403A: Canadian History Seminar, 2014.
+
+\ind HIST 403B: Canadian History Research Seminar, 2015.
+
+\ind HIST 602: Canadian History Projects Course, 2016.
+
+\medskip
+\noindent\emph{Course Evaluation Scores \vspace{0.05in}}
+
+\begin{tabular}{llll}
+Course    & Term & Year & Score (/5)  \\
+HIST 250  & F    & 2016 & In Progress \\
+HIST 602  & W    & 2016 & 4.93        \\
+HIST 250  & W    & 2016 & 4.51        \\
+HIST 303  & W    & 2015 & 4.84        \\
+HIST 403B & W    & 2015 & 4.96        \\
+HIST 403A & F    & 2014 & 4.86        \\
+HIST 250  & F    & 2014 & 4.54        \\
+HIST 303  & W    & 2014 & 4.77        \\
+HIST 250  & F    & 2013 & 4.51        \\
+HIST 388  & F    & 2013 & 4.76        \\
+HIST 291  & W    & 2013 & 4.77        \\
+HIST 388  & W    & 2013 & 4.30        \\
+HIST 291  & F    & 2012 & 4.70       
+\end{tabular}
+\bigskip
+\bigskip
+
+\marginhead{\sffamily {\vskip 0.35em}Service}
+\medskip
+\noindent\emph{Departmental Service \vspace{0.01in}}
+
+\ind Department of History Speaker Series Coordinator. 2014-16.
+
+\ind Department of History Teaching Assistant Committee Member. 2014-15.
+
+\ind Department of History Public History Committee Member. 2013-14.
+
+\ind Department of History Specializations Committee Member. 2013-14.
+
+\ind Department of History OGS/SSHRC Ranking Committee Member. 2013-14.
+
+\ind Department of History Arts Open House Mock Lecturer/Booth Member. 2013-15.
+
+\ind Department of History Recording Secretary. 2013-15.
+
+\medskip
+
+\noindent\emph{Faculty and University Service \vspace{0.05in}}
+
+\ind Member, Library Search Committee for Digital Archivist. 2015.
+
+\ind Arts Homecoming Committee. 2014.
+
+\ind Member, Library Search Committee for Digital Initiatives Librarian. 2014.
+
+\ind Member, Library Search Committee for Head, Special Collections and Archives. 2013.
+
+\medskip
+
+\noindent\emph{National Service \vspace{0.05in}}
+
+\ind Library and Archives Canada Acquisition Committee member. 2015-17.
+
+\ind Ontario Library Research Cloud (OLRC) Digital Scholarship Advisory Committee member. 2015-16.
+
+\medskip
+
+\noindent\emph{Peer Reviewing \vspace{0.05in}}
+
+\ind American Historical Review
+
+\ind Archivaria
+
+\ind Social History/Histoire Sociale (x2)
+
+\ind Digital Studies (x2)
+
+\ind New Media and Society
+
+\ind Journal of the Canadian Historical Association (x2)
+
+\ind History of Intellectual Culture (x2)
+
+\ind Historical Studies in Education
+
+\ind Wilfrid Laurier University Press
+
+\ind Web Archives as Scholarly Sources: Issues, Practices and Perspectives conference
+
+\ind Joint Conference on Digital Libraries.
+
+\ind Social Sciences and Humanities Research Council.
+
+\medskip
+
+\noindent\emph{Professional Organizations \vspace{0.05in}}
+
+\ind American Historical Association.
+
+\ind Association for Computers and the Humanities.
+
+\ind Association for Literary and Linguistic Computing.
+
+\ind Canadian Society for Digital Humanities.
+
+\end{document}
